@@ -1,0 +1,91 @@
+body {
+    background: #F8F7F7;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    background-color: white;
+    display: none;
+
+}
+
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 60px 40px 0 40px;
+    display: inline-block;
+}
+
+h1 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+}
+.card {
+    width: 100%;
+    background-color: coral;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.13);
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.img{
+    width: 100%;
+    height: 214px;
+    overflow: hidden;
+}
+
+.img img {
+    width: 100%;
+
+}
+
+.infoWrapper {
+  height: 50px;
+}
+
+
+/* For tablets */
+@media (min-width: 600px) {
+    .card {
+        width: 40%;
+        margin: 25px;
+    }
+
+    h1 {
+        margin-left: 25px;
+    }
+
+    .sidebar {
+        display: inline-block;
+        width: 100px;
+        height: 300px;
+        left: 0;
+        top: 0;
+        vertical-align: top;
+        height: 100vh; /* viewport height */ 
+        /* 100vw */
+    }
+
+    .container {
+        width: calc(100% - 110px)
+    }
+}
+
+@media (min-width: 1000px) {
+    .sidebar {
+      width: 200px;
+    }
+
+    .container {
+      width: calc(100% - 210px);
+      max-width: 1200px;
+    }
+}
+
+/*# sourceMappingURL=/responsive-desing.9ad09f98.css.map */
