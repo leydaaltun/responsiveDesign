@@ -6,10 +6,78 @@ body {
 
 .sidebar {
     background-color: white;
-    display: none;
-
+    transform: translateX(-100%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    z-index: 3;
+    transition: transform 0.3s cubic-bezier(0, 0.83, 0.16, 1.03);
+    will-change: transition;
 }
 
+.sidebar .items {
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+    padding: 24px;
+}
+
+.vacationFinderIcon {
+    background: url(/iconmonstr-compass-4.38d862ab.svg) no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.homepageIcon {
+    background: url(/iconmonstr-home-6.63c16eeb.svg) no-repeat;
+    width: 25px;
+    height: 25px;
+    box-sizing: border-box;
+    margin-top: 55px;
+}
+
+.locationIcon {
+    background: url(/iconmonstr-location-1.bc42a212.svg) no-repeat;
+    width: 25px;
+    height: 25px;
+    margin-top: 20px;
+}
+
+.hotelsIcon {
+    background: url(/iconmonstr-building-21.03eed4ac.svg) no-repeat;
+    width: 25px;
+    height: 25px;
+    margin-top: 20px;
+}
+
+.flightsIcon {
+    background: url(/iconmonstr-airport-5.f8cfe378.svg) no-repeat;
+    width: 25px;
+    height: 25px;
+    margin-top: 20px
+}
+
+body.sidebar-open .sidebar {
+    transform: translateX(0)
+}
+
+.overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.24);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+body.sidebar-open .overlay {
+    display: block;
+}
 
 .container {
     width: 100%;
@@ -18,12 +86,25 @@ body {
     display: inline-block;
 }
 
+.hamburger-menu {
+    background: url(/hamburger.06c230b7.svg) no-repeat;
+    width: 50px;
+    height: 43px;
+    margin: 25px -10px 0 0;
+    display: inline-block;
+    position: relative;
+    top: 9px;
+    left: -10px;
+}
+
 h1 {
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;
     font-size: 25px;
+    display: inline-block;
 }
+
 .card {
     width: 100%;
     background-color: coral;
@@ -35,7 +116,7 @@ h1 {
     display: inline-block;
 }
 
-.img{
+.img {
     width: 100%;
     height: 214px;
     overflow: hidden;
@@ -43,17 +124,16 @@ h1 {
 
 .img img {
     width: 100%;
-
 }
 
 .infoWrapper {
-  height: 50px;
-  box-sizing: border-box;
+    height: 50px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-
 .placeName {
-    float: left; 
+    float: left;
     box-sizing: border-box;
     margin: 20px;
     font-family: montserrat;
@@ -72,31 +152,45 @@ h1 {
     color: white;
     width: 70px;
     height: 30px;
-    
+    transition: background-color 0.15s ease-in;
 }
 
+.price:hover {
+    background: #9039E7;
+}
+
+
 /* For tablets */
-@media (min-width: 600px) {
+
+@media (min-width: 700px) {
     .card {
-        width: 40%;
-        margin: 25px;
+        width: 41%;
+        margin: 20px;
     }
-
     h1 {
-        margin-left: 25px;
+        margin-left: 20px;
     }
-
     .sidebar {
         display: inline-block;
         width: 100px;
         left: 0;
         top: 0;
         vertical-align: top;
-        height: 100vh; /* viewport height */ 
+        position: static;
+        height: 100vh;
+        transform: translateX(0);
+        /* viewport height */
         /* 100vw */
     }
-
-    
+    body.sidebar-open .overlay {
+        display: none;
+    }
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+    .hamburger-menu {
+        display: none;
+    }
     .items {
         box-sizing: border-box;
         display: inline-block;
@@ -104,66 +198,24 @@ h1 {
         height: 300px;
         margin: 85px 20px 20px 35px;
     }
-
-    
-    .vacationFinderIcon {
-        background: url(/iconmonstr-compass-4.38d862ab.svg) no-repeat;
-        width: 24px;
-        height: 24px;
-        display: inline-block;
-        box-sizing: border-box;
-    }
-
-    .homepageIcon {
-        background: url(/iconmonstr-home-6.63c16eeb.svg) no-repeat;
-        width: 25px;
-        height: 25px;
-        box-sizing: border-box;
-        margin-top: 55px;
-    }
-
-    .locationIcon {
-        background: url(/iconmonstr-location-1.bc42a212.svg) no-repeat;
-        width: 25px;
-        height: 25px;
-        margin-top: 20px;
-        
-    }
-
-    .hotelsIcon {
-        background: url(/iconmonstr-building-21.03eed4ac.svg) no-repeat;
-        width: 25px;
-        height: 25px;
-        margin-top: 20px;
-    }
-
-    .flightsIcon {
-        background: url(/iconmonstr-airport-5.f8cfe378.svg) no-repeat;
-        width: 25px;
-        height: 25px;
-        margin-top: 20px
-    }
     .container {
         width: calc(100% - 110px);
-        
+        padding: 60px 25px 0 25px;
     }
-
     .infoWrapper {
         box-sizing: border-box;
         height: 50px;
         display: inline-block;
     }
-
-    .placeName{
+    .placeName {
         width: 110px;
         box-sizing: border-box;
         font-size: 12px;
         display: inline-block;
         font-weight: 500;
-        
+        margin: 20px 15px 0 10px;
     }
-
-    .price{
+    .price {
         box-sizing: border-box;
         width: 50px;
         display: inline-block;
@@ -171,37 +223,30 @@ h1 {
 }
 
 
+/* @media (min-width:) {} */
 
 @media (min-width: 1000px) {
     .sidebar {
-      width: 200px;
+        width: 200px;
     }
-
     .container {
-      width: calc(100% - 210px);
-      max-width: 1200px;
+        width: calc(100% - 210px);
+        max-width: 1200px;
     }
-
     .infoWrapper {
         box-sizing: border-box;
         display: inline-block;
-        width: 100%;
     }
-
     .placeName {
         box-sizing: border-box;
         display: inline-block;
         width: 150px;
         font-size: 16px;
     }
-
     .price {
         box-sizing: border-box;
         float: right;
     }
-
 }
-
-
 
 /*# sourceMappingURL=/resDesign.9ad09f98.css.map */
