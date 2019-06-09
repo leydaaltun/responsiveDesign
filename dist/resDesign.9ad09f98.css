@@ -222,9 +222,6 @@ h1 {
     }
 }
 
-
-/* @media (min-width:) {} */
-
 @media (min-width: 1000px) {
     .sidebar {
         width: 200px;
@@ -246,6 +243,9 @@ h1 {
     .price {
         box-sizing: border-box;
         float: right;
+    }
+    h1 {
+        display: block;
     }
 }
 
